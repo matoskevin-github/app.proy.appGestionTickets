@@ -1,0 +1,43 @@
+﻿@model appGestionTickets.ViewModels.TicketViewModel
+
+@{
+    ViewBag.Title = "Detalle Ticket";
+}
+
+<h2>
+    <a style="float:right; color:lightsteelblue" href="@Url.Action("Index","Ticket")"><i class="fas fa-arrow-circle-left"></i></a>
+    Detalle Ticket
+</h2>
+
+@*@using (@Html.BeginForm("Nuevo", "Ticket", FormMethod.Get))
+{*@
+    <div class="form-group">
+        <label>Fecha Generación :</label>
+        @Model.Ticket.FechaGeneracion     
+    </div>
+
+    <div class="form-group">
+        <label>Estado :</label>
+        @Model.Ticket.Estado.Nombre
+    </div>
+
+    <div class="form-group">
+        <label>Usuario :</label>
+        @Model.Ticket.Usuario.Nombres
+        
+    </div>
+
+    <div class="form-group">
+        <label>Descripcion :</label>
+        @Model.Ticket.Descripcion    
+    </div>
+
+    <div class="form-group">
+        <label>Responsable :</label>
+        @Model.Ticket.Responsable.Nombres        
+    </div>
+
+    <div class="form-group">
+        <input type="button" value="Solucionar" class="btn btn-success" />
+    </div>
+@* } *@

@@ -1,0 +1,42 @@
+﻿@model List<appGestionTickets.Models.Tickets>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    <a style="float:right; color:green" href="@Url.Action("Nuevo","Ticket")"><i class="fas fa-plus-circle"></i></a>
+    Listado de Tickets
+</h2>
+<hr />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Acciones</th>
+            <th>#Ticket</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Usuario</th>
+            <th>Responsable</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Detalle","Ticket",new { IdTicket = ticket.IdTicket })" title="Ver Detalle" style="color:blue"><i class="fas fa-search-plus"></i></a>
+                    <a href="@Url.Action("Actualizar","Ticket",new { IdTicket = ticket.IdTicket })" title="Actualizar" style="color:green"><i class="fas fa-user-edit"></i></a>
+                    <a href="@Url.Action("Eliminar","Ticket",new { IdTicket = ticket.IdTicket })" title="Eliminar" style="color:red"><i class="fas fa-trash-alt"></i></a>
+                    
+                    
+                </td>
+                <td>@ticket.IdTicket</td>
+                <td>@ticket.FechaGeneracion</td>
+                <td>@ticket.Estado.Nombre</td>
+                <td>@ticket.Usuario.Nombres</td>
+                <td>@ticket.Responsable.Nombres</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
